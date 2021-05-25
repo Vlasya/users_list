@@ -4,6 +4,7 @@ import {useHistory, useLocation} from "react-router-dom";
 import {connect} from "react-redux";
 import {controlUsers} from "../store/actions";
 
+
 const useStyles = makeStyles({
     root: {
         display: 'flex',
@@ -14,7 +15,7 @@ const useStyles = makeStyles({
         left: '50%',
         transform: 'translate(-50%, -50%)',
         padding: '20px',
-        border: '2px solid #14A76C',
+        border: '3px solid #14A76C',
         height: '40%'
     },
     item: {
@@ -50,11 +51,11 @@ const Form = ({controlUsers}) => {
     const classes = useStyles()
     const [user, setUser] = useState(emptyUser);
     const location = useLocation()
-    useEffect(()=>{
-        if(location?.state?.user){
+    useEffect(() => {
+        if (location?.state?.user) {
             setUser(location?.state?.user)
         }
-    },[location?.state?.user])
+    }, [location?.state?.user])
     const handlerChange = (e) => {
         setUser({
             ...user,
